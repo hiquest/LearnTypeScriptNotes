@@ -3,7 +3,7 @@
 // 04. Classes
 // #########################
 
-// 💡a class is also a type
+// 💡 A class is also a type
 // class Dog {
 //   age: number
 //   constructor(age: number) {
@@ -16,12 +16,12 @@
 
 // const dog: Dog = new Dog(10)
 
-// 💡Duck-typing
+// 💡 Duck-typing
 // const dog: Dog = { age: 5, bark() { } } 
 
-// 💡Private / protected / public modifiers
+// 💡 Private / protected / public modifiers
 // class Dog {
-//   private age: number
+//   age: number
 //   constructor(age: number) {
 //     this.age = age
 //   }
@@ -33,14 +33,14 @@
 // const dog = new Dog(5)
 // dog.age
 
-// 💡 readonly modifiers
+// 💡 Readonly modifiers
 
 // 💡 Parameter properties (add a modifier)
 // class Dog {
 //   constructor(public age: number) { }
 // }
 // const dog = new Dog(5)
-// dog.age
+// dog.age // => 5
 
 
 // ##############
