@@ -3,12 +3,19 @@
 // 05. Generics
 // #########################
 
-// 💡 Generics to types are what arguments to functions
-
-// 💡 Array of strings
+// 💡 Most common usages of generics: An array of things
 // const names: string[] = []
 // const names: Array<string> = []
 // names.push(5)  // ️️️️(!) ️️Argument of type '5' is not assignable to parameter of type 'string'
+// const res = names[0]  // string
+
+// 💡 Generics with functions
+// function value<T>(x: T) {
+//   return () => x
+// }
+
+// const five = value("string")
+// const res = five()
 
 // 💡 How to implement `map`?
 // function map<T, K>(arr: T[], mapper: (arg: T) => K) {
@@ -58,7 +65,7 @@
 
 // 1. Implement the `filter` function
 // function filter {
-// TODO: Implement me
+//   // TODO: Implement me
 // }
 // const res1 = filter([-1, 2, 3, 4], x => x > 0)  // should be of type `number`
 // const res2 = filter(['a', 'abc', 'abcde'], x => x.length > 1)  // should be of type `string`
