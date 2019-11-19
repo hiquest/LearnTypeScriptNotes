@@ -1,38 +1,25 @@
 // #########################
 // ~~~ Learn TypeScript ~~~
-// 05. Generics
+// 05. GENERICS
 // #########################
 
+// #####################################################
 // 💡 Most common usages of generics: An array of things
+// #####################################################
 // const names: string[] = []
 // const names: Array<string> = []
+// names.push('asdfasdf')
 // names.push(5)  // ️️️️(!) ️️Argument of type '5' is not assignable to parameter of type 'string'
 // const res = names[0]  // string
 
-// 💡 Generics with functions
-// function value<T>(x: T) {
-//   return () => x
-// }
-
-// const five = value("string")
-// const res = five()
-
-// 💡 How to implement `map`?
-// function map<T, K>(arr: T[], mapper: (arg: T) => K) {
-//   const res: Array<K> = []
-//   arr.forEach((el) => {
-//     res.push(mapper(el))
-//   })
-//   return res
-// }
-
-// const res = map([1, 2, 3], (x) => x * x)
-
+// #########################
 // 💡 Generic types
-// type User<T extends string | string[]> = {
+// #########################
+// - `extends` when you want to limit what type can it be
+// - `= String` specifies the default generic type (when no generic is provided)
+// type User<T extends string | string[] = String> = {
 //   name: T
 // }
-
 // const john: User<string> = { name: 'John' }
 // const erich: User<string> = {
 //   name: ['Erich', 'Maria', 'Remarch']  // (!) Type 'string[]' is not assignable to type 'string'
@@ -41,14 +28,30 @@
 //   name: ['Erich', 'Maria', 'Remarch']  // 👍
 // }
 
-// 💡Parametrized type with default generic type
-// type User<T extends string | [] = string> = {
-//   name: T
+// #########################
+// 💡 Generics with functions
+// #########################
+// function value<T>(x: T) {
+//   return () => x
 // }
 
-// const john: User = { name: "John" }
+// const five = value(5)  // is of type () => number
+// const five = value("string")  // is of type () => string
 
+// #########################
+// 💡 Multiple generic types functions
+// #########################
+// function map<T, K>(arr: T[], mapper: (arg: T) => K) {
+//     const res: K[] = []
+//     arr.forEach(el => res.push(mapper(el)))
+//     return res
+// }
+
+// const res = map(['1', '2', '3'], (x) => x * x)  // array of numbers
+
+// #########################
 // 💡 Generic classes
+// #########################
 // class ValueWrapper<T> {
 //   constructor(private value: T) {}
 //   getValue() {
@@ -56,8 +59,8 @@
 //   }
 // }
 
-// const wrapped = new ValueWrapper(10)
-// const num: number = wrapped.getValue()
+// const wrapped = new ValueWrapper(5)
+// const num = wrapped.getValue()
 
 // ##############
 // 🏋️Exercises 🏋️
